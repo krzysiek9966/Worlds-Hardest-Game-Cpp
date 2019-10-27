@@ -1,0 +1,4 @@
+﻿  Najtrudniejsza_gra.cpp
+  Square.cpp
+  Generowanie kodu...
+sfml-graphics-s-d.lib(RenderStates.cpp.obj) : fatal error LNK1112: wystąpił konflikt typu maszyny modułu „x86” z typem maszyny docelowej „x64”
