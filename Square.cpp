@@ -26,25 +26,66 @@ void Square::update()
 	in_square.move(this->velocity);
 
 	//Ruch po osi x:
-	if (Keyboard::isKeyPressed(Keyboard::Key::A)|| Keyboard::isKeyPressed(Keyboard::Key::Left))
+	if ((Keyboard::isKeyPressed(Keyboard::Key::A)|| Keyboard::isKeyPressed(Keyboard::Key::Left))&&freeLeft == true)
 	{
 		velocity.x = -squareVelocity;
 	}
-	else if (Keyboard::isKeyPressed(Keyboard::Key::D) || Keyboard::isKeyPressed(Keyboard::Key::Right))
+	else if ((Keyboard::isKeyPressed(Keyboard::Key::D) || Keyboard::isKeyPressed(Keyboard::Key::Right))&&freeRight == true)
 	{
 		velocity.x = squareVelocity;
 	}else velocity.x = 0.f;
 	
 	//Ruch po osi y:
-	if (Keyboard::isKeyPressed(Keyboard::Key::W) || Keyboard::isKeyPressed(Keyboard::Key::Up))
+	if ((Keyboard::isKeyPressed(Keyboard::Key::W) || Keyboard::isKeyPressed(Keyboard::Key::Up))&&freeTop == true)
 	{
 		velocity.y = -squareVelocity;
 	}
-	else if (Keyboard::isKeyPressed(Keyboard::Key::S) || Keyboard::isKeyPressed(Keyboard::Key::Down))
+	else if ((Keyboard::isKeyPressed(Keyboard::Key::S) || Keyboard::isKeyPressed(Keyboard::Key::Down))&&freeBottom == true)
 	{
 		velocity.y = squareVelocity;
 	}
 	else velocity.y = 0.f;
 	
-	
+	Square::reload();
+}
+
+float Square::top()
+{
+	return this->ex_square.getPosition().y - ex_squareEdge/2;
+}
+float Square::bottom()
+{
+	return this->ex_square.getPosition().y + ex_squareEdge/2;
+}
+float Square::right()
+{
+	return this->ex_square.getPosition().x + ex_squareEdge/2;
+}
+float Square::left()
+{
+	return this->ex_square.getPosition().x - ex_squareEdge/2;
+}
+
+void Square::topCollision(bool x)
+{
+	this->freeTop = x;
+}
+void Square::bottomCollision(bool x)
+{
+	this->freeBottom = x;
+}
+void Square::rightCollision(bool x)
+{
+	this->freeRight = x;
+}
+void Square::leftCollision(bool x)
+{
+	this->freeLeft = x;
+}
+void Square::reload()
+{
+	this->freeTop = true;
+	this->freeBottom = true;
+	this->freeRight = true;
+	this->freeLeft = true;
 }
