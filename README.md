@@ -1,6 +1,6 @@
 # Worlds-Hardest-Game-Cpp
 #### Recreation of the "World's hardest game" in C ++ as part of a university project.
-##### Implementation: Krzysztof Ćmiel ~_Bartłomiej Depciuch_~
+##### Implementation: Krzysztof Ćmiel
 
 ### Założenia projektu:
 - minimum 2 poziomy
